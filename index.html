@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afnan Interior | Premium Interior Design in Delhi</title>
+    <meta name="description" content="Afnan Interior offers modern residential, commercial and custom interior design solutions in Badarpur, New Delhi.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { stone: { 50: '#fafaf9', 100: '#f5f5f4', 200: '#e7e5e4', 300: '#d6d3d1', 400: '#a8a29e', 500: '#78716c', 600: '#57534e', 700: '#44403c', 800: '#292524', 900: '#1c1917', 950: '#0c0a09' } }
+                }
+            }
+        }
+    </script>
+    
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { cursor: none; }
+        @media (max-width: 768px) { body { cursor: auto; } }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Custom Cursor */
+        #custom-cursor {
+            position: fixed;
+            top: 0; left: 0;
+            width: 24px; height: 24px;
+            background-color: #1c1917;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transform: translate(-50%, -50%);
+            transition: transform 0.15s ease-out, width 0.2s, height 0.2s;
+        }
+        #custom-cursor.hover {
+            transform: translate(-50%, -50%) scale(2.5);
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-900 font-sans selection:bg-stone-900 selection:text-stone-50 overflow-x-hidden">
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor" class="hidden md:block"></div>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500 bg-transparent py-6">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+            <div class="text-xl md:text-2xl font-bold tracking-tighter uppercase text-white mix-blend-difference z-50">Afnan Interior</div>
+            
+            <div class="hidden md:flex space-x-8 text-sm font-medium tracking-wide items-center text-white mix-blend-difference z-50">
+                <a href="#home" class="hover:opacity-70 transition-opacity">Home</a>
+                <a href="#about" class="hover:opacity-70 transition-opacity">About</a>
+                <a href="#services" class="hover:opacity-70 transition-opacity">Services</a>
+                <a href="#portfolio" class="hover:opacity-70 transition-opacity">Portfolio</a>
+                <a href="#contact" class="hover:opacity-70 transition-opacity">Contact</a>
+                <a href="#contact" class="cursor-hover bg-white text-stone-900 px-6 py-2.5 rounded-full hover:bg-stone-200 transition-all mix-blend-normal">
+                    Book Consultation
+                </a>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-white mix-blend-difference z-50">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-stone-50 z-40 flex flex-col items-center justify-center space-y-8 text-2xl font-medium tracking-tight opacity-0 pointer-events-none transition-opacity duration-300">
+        <a href="#home" class="mobile-link">Home</a>
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#services" class="mobile-link">Services</a>
+        <a href="#portfolio" class="mobile-link">Portfolio</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0 hero-bg">
+            <div class="absolute inset-0 bg-gradient-to-b from-stone-900/60 via-stone-900/40 to-stone-900/80 z-10"></div>
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop" alt="Luxury Interior Design" class="w-full h-full object-cover">
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full mt-24">
+            <div class="gsap-hero max-w-3xl backdrop-blur-md bg-white/10 p-8 md:p-12 rounded-3xl border border-white/20 shadow-2xl">
+                <div class="text-white/80 text-xs md:text-sm font-semibold tracking-[0.3em] mb-4 flex items-center gap-2">
+                    <span class="w-8 h-[1px] bg-white/60 block"></span>
+                    INTERIOR DESIGN • EXECUTION • RENOVATION
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold text-white leading-[1.1] tracking-tighter mb-6">
+                    Spaces Designed to Feel Like You.
+                </h1>
+                <p class="text-lg md:text-xl text-white/90 mb-10 max-w-xl font-light">
+                    Afnan Interior transforms everyday spaces into refined, functional and beautifully crafted environments.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#portfolio" class="cursor-hover bg-white text-stone-900 px-8 py-4 rounded-full font-medium text-center hover:scale-105 transition-transform flex items-center justify-center gap-2">
+                        Explore Our Work <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#contact" class="cursor-hover bg-white/10 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-full font-medium text-center hover:bg-white/20 transition-all">
+                        Talk to Afnan Interior
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 md:py-32 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-16 items-center">
+            <div class="fade-up">
+                <h2 class="text-4xl md:text-6xl font-bold tracking-tighter leading-tight mb-6">
+                    Where Function Meets Beautiful Design.
+                </h2>
+                <p class="text-stone-600 text-lg mb-8 leading-relaxed">
+                    At Afnan Interior, we believe your space should be a direct reflection of your lifestyle. We focus on creating thoughtfully designed interiors combining premium aesthetics, everyday functionality, absolute comfort, and meticulous craftsmanship.
+                </p>
+                <div class="grid grid-cols-3 gap-8 border-t border-stone-200 pt-8">
+                    <div>
+                        <div class="text-3xl font-bold tracking-tighter mb-1">100+</div>
+                        <div class="text-xs text-stone-500 uppercase tracking-wider">Projects & Spaces</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold tracking-tighter mb-1">5+</div>
+                        <div class="text-xs text-stone-500 uppercase tracking-wider">Years Crafting</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold tracking-tighter mb-1">100%</div>
+                        <div class="text-xs text-stone-500 uppercase tracking-wider">Client Focus</div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative h-[600px] rounded-3xl overflow-hidden fade-up">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Interior Details">
+                <div class="absolute inset-0 bg-stone-900/10 rounded-3xl border border-black/5"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 md:py-32 bg-stone-100">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="fade-up mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tighter mb-4">Our Expertise</h2>
+                <p class="text-stone-600 max-w-2xl text-lg">Comprehensive interior solutions tailored to your unique requirements and aesthetic vision.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service Cards (Repeated pattern) -->
+                <div class="fade-up group bg-white p-8 rounded-3xl hover:shadow-2xl transition-all duration-500 border border-stone-200/50 hover:border-stone-300 relative overflow-hidden cursor-hover">
+                    <div class="text-stone-300 font-bold text-4xl mb-4 group-hover:text-stone-900 transition-colors">01</div>
+                    <h3 class="text-xl font-bold mb-3">Residential Interiors</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed z-10 relative">Complete interior solutions for apartments, villas and homes.</p>
+                    <div class="absolute bottom-0 right-0 w-24 h-24 bg-stone-50 rounded-tl-full -mr-12 -mb-12 group-hover:scale-150 transition-transform duration-500 ease-out z-0"></div>
+                </div>
+                <div class="fade-up group bg-white p-8 rounded-3xl hover:shadow-2xl transition-all duration-500 border border-stone-200/50 hover:border-stone-300 relative overflow-hidden cursor-hover">
+                    <div class="text-stone-300 font-bold text-4xl mb-4 group-hover:text-stone-900 transition-colors">02</div>
+                    <h3 class="text-xl font-bold mb-3">Modular Kitchens</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed z-10 relative">Contemporary kitchens designed around lifestyle, storage and usability.</p>
+                    <div class="absolute bottom-0 right-0 w-24 h-24 bg-stone-50 rounded-tl-full -mr-12 -mb-12 group-hover:scale-150 transition-transform duration-500 ease-out z-0"></div>
+                </div>
+                <div class="fade-up group bg-white p-8 rounded-3xl hover:shadow-2xl transition-all duration-500 border border-stone-200/50 hover:border-stone-300 relative overflow-hidden cursor-hover">
+                    <div class="text-stone-300 font-bold text-4xl mb-4 group-hover:text-stone-900 transition-colors">03</div>
+                    <h3 class="text-xl font-bold mb-3">Bedroom Interiors</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed z-10 relative">Comfortable, refined bedroom environments with custom detailing.</p>
+                    <div class="absolute bottom-0 right-0 w-24 h-24 bg-stone-50 rounded-tl-full -mr-12 -mb-12 group-hover:scale-150 transition-transform duration-500 ease-out z-0"></div>
+                </div>
+                <div class="fade-up group bg-white p-8 rounded-3xl hover:shadow-2xl transition-all duration-500 border border-stone-200/50 hover:border-stone-300 relative overflow-hidden cursor-hover">
+                    <div class="text-stone-300 font-bold text-4xl mb-4 group-hover:text-stone-900 transition-colors">04</div>
+                    <h3 class="text-xl font-bold mb-3">Office Interiors</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed z-10 relative">Professional and modern workspaces designed for productivity.</p>
+                    <div class="absolute bottom-0 right-0 w-24 h-24 bg-stone-50 rounded-tl-full -mr-12 -mb-12 group-hover:scale-150 transition-transform duration-500 ease-out z-0"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-24 md:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tighter">Selected Spaces</h2>
+                <div class="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+                    <button class="px-6 py-2 rounded-full border border-stone-200 text-sm font-medium hover:bg-stone-900 hover:text-white transition-colors whitespace-nowrap">All</button>
+                    <button class="px-6 py-2 rounded-full border border-stone-200 text-sm font-medium hover:bg-stone-900 hover:text-white transition-colors whitespace-nowrap">Residential</button>
+                    <button class="px-6 py-2 rounded-full border border-stone-200 text-sm font-medium hover:bg-stone-900 hover:text-white transition-colors whitespace-nowrap">Kitchen</button>
+                    <button class="px-6 py-2 rounded-full border border-stone-200 text-sm font-medium hover:bg-stone-900 hover:text-white transition-colors whitespace-nowrap">Commercial</button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="fade-up group relative overflow-hidden rounded-3xl cursor-hover">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200&auto=format&fit=crop" alt="The Modern Villa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 pointer-events-none">
+                        <span class="text-white/80 text-xs uppercase tracking-widest mb-2">Residential</span>
+                        <h3 class="text-white text-2xl font-bold">The Modern Villa</h3>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="fade-up group relative overflow-hidden rounded-3xl md:mt-16 cursor-hover">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop" alt="Minimalist Workspace" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 pointer-events-none">
+                        <span class="text-white/80 text-xs uppercase tracking-widest mb-2">Office</span>
+                        <h3 class="text-white text-2xl font-bold">Minimalist Workspace</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cinematic Showcase -->
+    <section class="relative h-[80vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-stone-900 z-0 cinematic-bg">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2000&auto=format&fit=crop" alt="Cinematic Interior" class="w-full h-full object-cover opacity-50 blur-[2px] scale-105">
+        </div>
+        <div class="relative z-10 text-center px-6 fade-up">
+            <h2 class="text-6xl md:text-8xl font-bold text-white tracking-tighter mb-6 drop-shadow-lg">
+                Your Space. <br> Reimagined.
+            </h2>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-24 md:py-32 bg-stone-900 text-stone-50">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="fade-up mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tighter mb-4">Our Process</h2>
+                <p class="text-stone-400 text-lg">A streamlined, transparent journey from concept to completion.</p>
+            </div>
+
+            <div class="relative border-l border-stone-700 pl-8 md:pl-0 md:border-l-0 md:border-t pt-8 md:pt-16 flex flex-col md:flex-row gap-12 md:gap-8">
+                <div class="fade-up relative md:flex-1">
+                    <div class="absolute -left-10 md:left-0 md:-top-[69px] w-4 h-4 rounded-full bg-stone-50 border-4 border-stone-900"></div>
+                    <div class="text-stone-500 font-mono text-sm mb-2">01</div>
+                    <h4 class="text-xl font-bold tracking-tight mb-3">DISCOVER</h4>
+                    <p class="text-stone-400 text-sm leading-relaxed">Understand lifestyle, requirements, taste and space.</p>
+                </div>
+                <div class="fade-up relative md:flex-1">
+                    <div class="absolute -left-10 md:left-0 md:-top-[69px] w-4 h-4 rounded-full bg-stone-50 border-4 border-stone-900"></div>
+                    <div class="text-stone-500 font-mono text-sm mb-2">02</div>
+                    <h4 class="text-xl font-bold tracking-tight mb-3">PLAN</h4>
+                    <p class="text-stone-400 text-sm leading-relaxed">Develop layouts, concepts, materials and visual direction.</p>
+                </div>
+                <div class="fade-up relative md:flex-1">
+                    <div class="absolute -left-10 md:left-0 md:-top-[69px] w-4 h-4 rounded-full bg-stone-50 border-4 border-stone-900"></div>
+                    <div class="text-stone-500 font-mono text-sm mb-2">03</div>
+                    <h4 class="text-xl font-bold tracking-tight mb-3">EXECUTE</h4>
+                    <p class="text-stone-400 text-sm leading-relaxed">Bring the approved design to life with careful execution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & CTA -->
+    <section id="contact" class="py-24 md:py-32 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-16">
+            
+            <div class="fade-up flex flex-col justify-center">
+                <h2 class="text-5xl md:text-6xl font-bold tracking-tighter leading-[1.1] mb-6">
+                    Let’s Create a Space Worth Coming Home To.
+                </h2>
+                <p class="text-stone-600 text-lg mb-12">
+                    Tell us about your space, your vision and the way you want it to feel. 
+                    Our team at Afnan Interior is ready to bring it to life.
+                </p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4 group cursor-hover">
+                        <div class="w-12 h-12 rounded-full bg-stone-100 flex items-center justify-center group-hover:bg-stone-900 group-hover:text-white transition-colors">
+                            <i data-lucide="map-pin" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Visit Our Studio</h4>
+                            <p class="text-stone-600 text-sm">Shop D-684, Near Jama Masjid, Jaitpur Ext. Part II, Badarpur, New Delhi 110044</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-4 group cursor-hover">
+                        <div class="w-12 h-12 rounded-full bg-stone-100 flex items-center justify-center group-hover:bg-stone-900 group-hover:text-white transition-colors">
+                            <i data-lucide="phone" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Call Us Directly</h4>
+                            <a href="tel:+917818905281" class="text-stone-600 hover:text-stone-900 block">+91 78189 05281</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fade-up bg-stone-50 p-8 md:p-12 rounded-3xl border border-stone-200 shadow-xl shadow-stone-200/50">
+                <h3 class="text-2xl font-bold mb-8 tracking-tight">Request a Consultation</h3>
+                <form class="space-y-6" onsubmit="event.preventDefault();">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium text-stone-600">Full Name *</label>
+                            <input type="text" required class="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:outline-none focus:ring-2 focus:ring-stone-900 transition-all" placeholder="John Doe">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium text-stone-600">Phone *</label>
+                            <input type="tel" required class="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:outline-none focus:ring-2 focus:ring-stone-900 transition-all" placeholder="+91 00000 00000">
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm font-medium text-stone-600">Project Type *</label>
+                        <select class="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:outline-none focus:ring-2 focus:ring-stone-900 transition-all">
+                            <option>Residential Interior</option>
+                            <option>Modular Kitchen</option>
+                            <option>Commercial Space</option>
+                            <option>Renovation</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm font-medium text-stone-600">Project Details</label>
+                        <textarea rows="4" class="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:outline-none focus:ring-2 focus:ring-stone-900 transition-all resize-none" placeholder="Tell us a bit about your space..."></textarea>
+                    </div>
+                    <button class="cursor-hover w-full bg-stone-900 text-white py-4 rounded-xl font-bold hover:bg-stone-800 transition-colors flex items-center justify-center gap-2">
+                        Submit Enquiry <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-950 text-stone-400 py-16 border-t border-stone-800">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-4 gap-12">
+            <div class="md:col-span-2">
+                <div class="text-2xl font-bold tracking-tighter uppercase text-white mb-4">Afnan Interior</div>
+                <p class="max-w-sm mb-6">Designing refined spaces for modern living. Elevating everyday environments through premium interior solutions and meticulous craftsmanship.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 tracking-tight">Navigation</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="#home" class="hover:text-white transition-colors cursor-hover">Home</a></li>
+                    <li><a href="#about" class="hover:text-white transition-colors cursor-hover">About</a></li>
+                    <li><a href="#services" class="hover:text-white transition-colors cursor-hover">Services</a></li>
+                    <li><a href="#portfolio" class="hover:text-white transition-colors cursor-hover">Portfolio</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 tracking-tight">Contact</h4>
+                <ul class="space-y-3 text-sm">
+                    <li>+91 78189 05281</li>
+                    <li>Badarpur, New Delhi, Delhi 110044</li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 md:px-12 mt-16 pt-8 border-t border-stone-800 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>© 2026 Afnan Interior. All Rights Reserved.</p>
+            <p>Designed for Excellence.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/917818905281?text=Hello%20Afnan%20Interior,%20I%E2%80%99m%20interested%20in%20your%20interior%20design%20services.%20I%E2%80%99d%20like%20to%20discuss%20my%20project." 
+       target="_blank" rel="noopener noreferrer"
+       class="cursor-hover fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center group">
+        <i data-lucide="message-circle" class="w-7 h-7"></i>
+        <span class="absolute right-16 bg-white text-stone-900 px-4 py-2 rounded-xl text-sm font-bold shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-stone-100">
+            Chat with us
+        </span>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Custom Cursor Logic
+        const cursor = document.getElementById('custom-cursor');
+        const cursorHoverElements = document.querySelectorAll('.cursor-hover, a, button');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        cursorHoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/70', 'backdrop-blur-xl', 'border-b', 'border-white/20', 'shadow-sm');
+                navbar.classList.remove('bg-transparent', 'py-6');
+                // Change text color to dark when scrolling past hero
+                navbar.querySelectorAll('.mix-blend-difference').forEach(el => {
+                    el.classList.remove('text-white', 'mix-blend-difference');
+                    el.classList.add('text-stone-900');
+                });
+            } else {
+                navbar.classList.remove('bg-white/70', 'backdrop-blur-xl', 'border-b', 'border-white/20', 'shadow-sm');
+                navbar.classList.add('bg-transparent', 'py-6');
+                // Revert to mix-blend
+                navbar.querySelectorAll('.text-stone-900').forEach(el => {
+                    el.classList.add('text-white', 'mix-blend-difference');
+                    el.classList.remove('text-stone-900');
+                });
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+                mobileMenuBtn.innerHTML = '<i data-lucide="x"></i>';
+            } else {
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                mobileMenuBtn.innerHTML = '<i data-lucide="menu"></i>';
+            }
+            lucide.createIcons();
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Load Animation
+        gsap.fromTo(".gsap-hero", { opacity: 0, scale: 0.9, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 1.2, ease: "power3.out" });
+
+        // Hero Parallax on Scroll
+        gsap.to(".hero-bg", {
+            yPercent: 40,
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#home",
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+
+        // Cinematic Parallax
+        gsap.to(".cinematic-bg img", {
+            yPercent: 20,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".cinematic-bg",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+
+        // Fade Up Elements
+        gsap.utils.toArray('.fade-up').forEach(element => {
+            gsap.fromTo(element, 
+                { opacity: 0, y: 40 },
+                { 
+                    opacity: 1, 
+                    y: 0, 
+                    duration: 0.8,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    }
+                }
+            );
+        });
+    </script>
+</body>
+</html>
